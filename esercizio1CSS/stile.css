@@ -1,0 +1,22 @@
+nav{
+    background-color: greenyellow;
+}
+a{
+    color: red;
+}
+#storia h2 +p{
+    color: blue;
+}
+#storia p{
+    color: pink;
+}
+
+#monumenti h2+p{
+    color: blue;
+}
+#articole h3+p{
+    background-color: cyan;
+}
+figcaption{
+    background-color: grey;
+}
