@@ -1,114 +1,108 @@
-/* =========================================
-   PASSO 1 — RESET E BASE
-   ========================================= */
-
 *, *::before, *::after {
     box-sizing: border-box;
 }
 
 body {
-    /* Font stack pulito ed editoriale */
     font-family: Arial, sans-serif;
     font-size: 1rem;
     line-height: 1.7;
-    /* Colore scuro ma non nero puro per riposare la vista */
-    color: #2d2d2d;
-    background-color: #ffffff;
-    /* Limite larghezza per leggibilità su schermi grandi */
+    background: linear-gradient(135deg, #0d0d0d 0%, #1a0a2e 100%);
+    background-attachment: fixed;
+    color: GhostWhite;
     max-width: 900px;
     margin: 0 auto;
     padding: 0 1.5rem;
 }
 
-/* =========================================
-   PASSO 2 — SCALA TIPOGRAFICA E LINK
-   ========================================= */
-
-h1 { 
-    font-size: 2.5rem; 
-    line-height: 1.2; 
-    margin-bottom: 1rem; 
+body::selection {
+    background-color: #7b2fff94;
+    color: rgb(220, 180, 255);
 }
 
-h2 { 
-    font-size: 1.75rem; 
-    line-height: 1.3; 
-    margin-bottom: 0.75rem; 
-}
+h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem; color: MediumOrchid; }
+h2 { font-size: 1.75rem; line-height: 1.3; margin-bottom: 0.75rem; color: MediumPurple; }
+h3 { font-size: 1.25rem; line-height: 1.4; margin-bottom: 0.5rem; color: Thistle; }
 
-h3 { 
-    font-size: 1.25rem; 
-    line-height: 1.4; 
-    margin-bottom: 0.5rem; 
-}
-
-/* Accento visivo al primo paragrafo dopo un h2 */
 h2 + p {
     font-size: 1.05rem;
-    color: #555555;
+    color: LightSteelBlue;
 }
 
-p { 
-    margin-bottom: 1rem; 
+p { margin-bottom: 1rem; }
+
+blockquote > p {
+    color: rgba(180, 130, 255, 0.85);
 }
 
-/* Link e stati interattivi */
 a {
-    color: #1a5fa8;
+    color: MediumSlateBlue;
     text-decoration: underline;
     transition: color 0.2s ease;
 }
 
 a:hover {
-    color: #0d3d6e;
+    color: MediumOrchid;
+    scale: 1.1;
+    transition: 0.2s;
 }
 
 a:focus-visible {
-    outline: 3px solid #1a5fa8;
+    outline: 3px solid MediumPurple;
     outline-offset: 2px;
     border-radius: 2px;
 }
 
-/* =========================================
-   PASSO 3 — COMPONENTI: NAV, HERO, SEZIONI
-   ========================================= */
+/* ── NAVIGAZIONE ── */
 
-/* Navigazione 
-   NOTA: Al momento i link sono verticali. 
-   Useremo Flexbox in futuro per affiancarli. */
 #nav-principale {
-    background-color: #1a1a2e;
+    background-color: #0a0a0a;
     padding: 1rem 1.5rem;
-    margin: 0 -1.5rem; /* Estende lo sfondo ai bordi del padding del body */
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
 }
 
 #nav-principale ul {
     list-style: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    column-gap: 50px;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-link {
     display: block;
-    color: #e8e8e8;
+    color: Lavender;
     text-decoration: none;
     padding: 0.4rem 0;
 }
 
 .nav-link:hover,
 .nav-link:focus-visible {
-    color: #7eb8f7;
-    outline-color: #7eb8f7;
+    color: MediumOrchid;
+    outline-color: MediumOrchid;
+    scale: 1.1;
+    transition: 0.2s;
 }
 
-/* Sezione Hero */
+/* ── HERO ── */
+
 .hero {
-    background-color: #1a1a2e;
+    background-color: #0f0020;
     color: #ffffff;
     padding: 4rem 1.5rem;
     margin-bottom: 3rem;
-    margin-left: -1.5rem;
-    margin-right: -1.5rem;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    text-align: center;
+    border: 3px solid DarkOrchid;
+    animation: border-pulse 6s ease-out infinite;
+}
+
+.hero .hero-intro {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero h1 {
@@ -119,15 +113,16 @@ a:focus-visible {
 
 .hero-intro {
     font-size: 1.15rem;
-    color: #b0c4de;
+    color: Thistle;
     max-width: 60ch;
     margin-bottom: 2rem;
 }
 
-/* Bottoni */
+/* ── BOTTONI ── */
+
 .btn {
     display: inline-block;
-    background-color: #2e75b6;
+    background-color: DarkOrchid;
     color: #ffffff;
     text-decoration: none;
     padding: 0.75rem 1.75rem;
@@ -136,13 +131,15 @@ a:focus-visible {
 }
 
 .btn:hover {
-    background-color: #1a5fa8;
+    background-color: DarkViolet;
     color: #ffffff;
+    scale: 1.1;
+    transition: 0.2s;
 }
 
 .btn-small {
     display: inline-block;
-    color: #2e75b6;
+    color: MediumOrchid;
     text-decoration: none;
     font-weight: bold;
     font-size: 0.9rem;
@@ -152,32 +149,44 @@ a:focus-visible {
     text-decoration: underline;
 }
 
-/* Sezioni e Card 
-   NOTA: Le card si dispongono in verticale. 
-   Useremo CSS Grid per creare una griglia affiancata. */
+/* ── SEZIONI ── */
+
 .sezione {
     margin-bottom: 3rem;
     padding-top: 1rem;
 }
 
+/* ── CARD ── */
+
 .card {
-    background-color: #f8f9fa;
-    border: 1px solid #e0e0e0;
+    background-color: #1a0a2e;
+    border: 1px solid Indigo;
     border-radius: 8px;
     padding: 1.5rem;
     margin-bottom: 1rem;
 }
 
+.card p {
+    color: Lavender;
+}
+
 .card h3 {
-    color: #1a1a2e;
+    color: MediumPurple;
     margin-bottom: 0.5rem;
 }
 
-/* =========================================
-   PASSO 4 — FINITURE E DECORAZIONI
-   ========================================= */
+.card a {
+    color: MediumSlateBlue;
+}
 
-/* Lista Competenze con pseudo-elementi */
+.card a:hover {
+    color: MediumOrchid;
+    text-decoration: underline;
+    transition: 0.2s;
+}
+
+/* ── LISTA COMPETENZE ── */
+
 .lista-competenze {
     list-style: none;
     padding: 0;
@@ -189,24 +198,52 @@ a:focus-visible {
 }
 
 .lista-competenze li:not(:last-child) {
-    border-bottom: 1px solid #e8e8e8;
+    border-bottom: 1px solid DarkSlateBlue;
 }
 
 .lista-competenze li::before {
-    content: "\2192";  /* Freccia → */
-    color: #2e75b6;
+    content: "\2192";
+    color: MediumOrchid;
     margin-right: 0.6rem;
     font-weight: bold;
 }
 
-/* Citazione stilizzata */
+/* ── CONTATTI ── */
+
+.sezione#contatti li {
+    margin-bottom: 10px;
+}
+
+.sezione#contatti span {
+    color: MediumSlateBlue;
+    margin-right: 15px;
+}
+
+.sezione#contatti strong {
+    padding-right: 10px;
+}
+
+/* ── FAQ ── */
+
+.risposta-faq {
+    max-width: 500px;
+    margin-bottom: 50px;
+    color: rgba(180, 130, 255, 0.85);
+}
+
+ul > li {
+    font-weight: bold;
+}
+
+/* ── BLOCKQUOTE ── */
+
 blockquote {
-    border-left: 4px solid #2e75b6;
+    border-left: 4px solid DarkOrchid;
     padding-left: 1.25rem;
     margin: 1.5rem 0;
     font-style: italic;
-    color: #555555;
-    background-color: #fdfdfd;
+    color: LightSteelBlue;
+    background-color: #0d0014;
 }
 
 blockquote footer {
@@ -216,13 +253,26 @@ blockquote footer {
     margin-top: 0.5rem;
 }
 
-/* Footer */
+/* ── ULTIMA SEZIONE ── */
+
+.sezione:last-of-type {
+    border-bottom: 2px solid #2a0a4e;
+    padding-bottom: 2rem;
+}
+
+/* ── FOOTER ── */
+
 .footer-principale {
-    border-top: 2px solid #e0e0e0;
+    animation: border-pulse 6s ease-out infinite;
+    border: 2px solid DarkOrchid;
     margin-top: 4rem;
-    padding: 2rem 0;
-    color: #777777;
+    padding: 2rem 0 2rem 2rem;
+    color: LightSlateGray;
     font-size: 0.9rem;
+    background-color: #0a0a0a;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    text-align: center;
 }
 
 .footer-principale ul {
@@ -232,7 +282,7 @@ blockquote footer {
 }
 
 .footer-link {
-    color: #555555;
+    color: MediumSlateBlue;
     text-decoration: none;
 }
 
@@ -240,14 +290,27 @@ blockquote footer {
     text-decoration: underline;
 }
 
-/* Decorazione H2 con barretta verticale inline */
+/* ── INTESTAZIONI SEZIONE ── */
+
 .sezione h2::before {
     content: "";
     display: inline-block;
     width: 4px;
     height: 0.9em;
-    background-color: #2e75b6;
+    background-color: DarkOrchid;
     margin-right: 0.6rem;
     vertical-align: middle;
     border-radius: 2px;
+}
+
+/* ── ANIMAZIONE BORDO ── */
+
+@keyframes border-pulse {
+    0%   { border-color: #d4a5ff; }
+    25%  { border-color: #7b2fff; }
+    33%  { border-color: #4a0080; }
+    50%  { border-color: #1e0040; }
+    66%  { border-color: #4a0080; }
+    75%  { border-color: #7b2fff; }
+    100% { border-color: #d4a5ff; }
 }
