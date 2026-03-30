@@ -1,0 +1,48 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    color: darkmagenta;
+    background-color: yellow;
+    margin: 0;
+    padding: 0;
+
+}
+header{
+    color:blue;
+    background-color:brown;
+    padding:30px 20px;
+    text-align: center;
+}
+header h1{
+    margin:0;
+}
+header p{
+    margin:0;
+}
+main{
+    margin:50px;
+    padding: 20px;
+}
+.sezione{
+    background-color: green;
+    border-radius: 10px;
+    box-shadow: 5px 5px;
+}
+
+
+.titolo{
+    margin:0px;
+    padding:20px 20px;
+    background-color: burlywood;
+    cursor: pointer;
+}
+.titolo:hover{
+    background: cyan;
+}
+.contenuto{
+    display: none;
+    padding: 20px 20px;
+}
+.contenuto.visible{
+    display: block;
+}
+
