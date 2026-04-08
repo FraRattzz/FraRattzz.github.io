@@ -1,102 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Il Mio Sito Web</title>
-  <link rel="stylesheet" href="stile.css">
-
-</head>
-<body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Il Mio Sito Web</title>
+    <link rel="stylesheet" href="stile.css" />
+  </head>
+  <body>
     <nav id="nav-principale">
-  <ul>
-    <li><a href="#about" class="nav-link">Bio</a></li>
-    <li><a href="#competenze" class="nav-link">Competenze</a></li>
-    <li><a href="#progetti" class="nav-link">Progetti</a></li>
-    
-  
-  </ul>
-</nav>
+      <ul>
+        <li><a href="#about" class="nav-link">Bio</a></li>
+        <li><a href="#competenze" class="nav-link">Competenze</a></li>
+        <li><a href="#progetti" class="nav-link">Progetti</a></li>
+      </ul>
+    </nav>
 
-
-  <header class="hero">
-    <h1>Francesco Ratti</h1>
-    <p class="hero-intro">
+    <header class="hero">
+      <h1>Francesco Ratti</h1>
+      <p class="hero-intro">
         Sviluppatore web in formazione. Sto imparando HTML, CSS e JavaScript
         costruendo questo portfolio passo dopo passo.
-    </p>
-    <a href="#progetti" class="btn">Guarda i miei progetti</a>
-  </header>
+      </p>
+      <a href="#progetti" class="btn">Guarda i miei progetti</a>
+    </header>
 
-
-  <section id="about" class="sezione">
+    <section id="about" class="sezione">
       <h2>Chi sono</h2>
       <p>Canzo's best programmer ever</p>
       <p>Ogni giorno che passa informatica mi piace sempre meno</p>
       <blockquote>
-          <p>WHERE IS OMNI-MAN?? WHERE IS HE???</p>
-          <footer>— Immortal</footer>
-          <p>Il vento soffia sempre forte</p>
-          <footer>— PentitoFanti il Magno</footer>
+        <p>WHERE IS OMNI-MAN?? WHERE IS HE???</p>
+        <footer>— Immortal</footer>
+        <p>Il vento soffia sempre forte</p>
+        <footer>— PentitoFanti il Magno</footer>
       </blockquote>
-  </section>
+    </section>
 
-  <section id="competenze" class="sezione">
-    <h2>Competenze</h2>
-    <ul class="lista-competenze">
+    <section id="competenze" class="sezione">
+      <h2>Competenze</h2>
+      <ul class="lista-competenze">
         <li><strong>HTML</strong> — struttura semantica e accessibilità</li>
         <li><strong>CSS</strong> — cascade, box model, selettori</li>
         <li><strong>JavaScript</strong> — basi in corso di apprendimento</li>
         <li><strong>Git</strong> — versionamento e GitHub</li>
         <li><strong>VS Code</strong> — editor e estensioni</li>
-    </ul>
-  </section>
+      </ul>
+    </section>
 
-  <section id="progetti" class="sezione">
-    <h2>Progetti</h2>
-    <div class="card">
-        <h3>Homepage del portfolio</h3>
-        <p>Struttura HTML semantica e stili CSS di base.</p>
-        <a href="#" class="btn-small">Vedi dettagli</a>
-    </div>
-    <div class="card">
-        <h3>Orario Scolastico</h3>
-        <p>Primo progetto con dentro una table e del css basilare.</p>
-        <a href="PrimoEsercizio/index.html" class="btn-small">Vedi dettagli</a>
-    </div>
-     <div class="card">
-        <h3>Mondo Animale</h3>
-        <p>Introduzione a immagini,bottoni e non ricordo cos altro.</p>
-        <a href="EsercizioAnimali/proj.html" class="btn-small">Vedi dettagli</a>
-    </div>
-     <div class="card">
-        <h3>Storia di Mantova</h3>
-        <p>Primo progetto per testare il funzionamento del linguaggio css.</p>
-        <a href="esercizio1CSS/proj.html" class="btn-small">Vedi dettagli</a>
-    </div>
-    <div class="card">
-      <h3>Text Box e Combo box
-        
-      </h3>
-      <p>Esercizio di input e output</p>
-      <a href="ComboeText/index.html" class="btn-small">Vedi dettagli</a>
-  </div>
-  </section>
+    <section id="progetti" class="sezione">
+      <h2>Progetti</h2>
+      <div class="contenitoreProgetti">
+        <div class="card">
+          <h3>Homepage del portfolio</h3>
+          <p>Struttura HTML semantica e stili CSS di base.</p>
+          <a href="#" class="btn-small">Vedi dettagli</a>
+        </div>
+        <div class="card">
+          <h3>Orario Scolastico</h3>
+          <p>Primo progetto con dentro una table e del css basilare.</p>
+          <a href="PrimoEsercizio/index.html" class="btn-small"
+            >Vedi dettagli</a
+          >
+        </div>
+        <div class="card">
+          <h3>Mondo Animale</h3>
+          <p>Introduzione a immagini,bottoni e non ricordo cos altro.</p>
+          <a href="EsercizioAnimali/proj.html" class="btn-small"
+            >Vedi dettagli</a
+          >
+        </div>
+        <div class="card">
+          <h3>Storia di Mantova</h3>
+          <p>Primo progetto per testare il funzionamento del linguaggio css.</p>
+          <a href="esercizio1CSS/proj.html" class="btn-small">Vedi dettagli</a>
+        </div>
+        <div class="card">
+          <h3>Text Box e Combo box</h3>
+          <p>Esercizio di input e output</p>
+          <a href="ComboeText/index.html" class="btn-small">Vedi dettagli</a>
+        </div>
+      </div>
+    </section>
 
-  <footer class="footer-principale">
-    <p>&copy; 2026 Francesco Ratti — Portfolio in costruzione</p>
-    <ul>
-        <li><a href="https://github.com/FraRattzz" class="footer-link">GitHub(Peak Pfp)</a></li>
-        <li><a href="https://agora.ismonnet.it/agora432/user/profile.php" class="footer-link">Agorà mariano(Molto Importante)</a></li>
-    </ul>
-  </footer>
-
-
-
-
-
-  
-
-</body>
+    <footer class="footer-principale">
+      <p>&copy; 2026 Francesco Ratti — Portfolio in costruzione</p>
+      <ul>
+        <li>
+          <a href="https://github.com/FraRattzz" class="footer-link"
+            >GitHub(Peak Pfp)</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://agora.ismonnet.it/agora432/user/profile.php"
+            class="footer-link"
+            >Agorà mariano(Molto Importante)</a
+          >
+        </li>
+      </ul>
+    </footer>
+  </body>
 </html>

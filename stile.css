@@ -159,11 +159,18 @@ a:focus-visible {
 /* ── CARD ── */
 
 .card {
-    background-color: #1a0a2e;
+ background-color: #1a0a2e;
     border: 1px solid Indigo;
     border-radius: 8px;
     padding: 1.5rem;
-    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Le card saranno tutte alte uguali nella stessa fila */
+}
+.card:hover{
+    transform: translateY(-5px);
+    border-color: MediumOrchid;
 }
 
 .card p {
@@ -183,6 +190,9 @@ a:focus-visible {
     color: MediumOrchid;
     text-decoration: underline;
     transition: 0.2s;
+}
+.card {
+    margin-bottom: 0;
 }
 
 /* ── LISTA COMPETENZE ── */
@@ -301,6 +311,15 @@ blockquote footer {
     margin-right: 0.6rem;
     vertical-align: middle;
     border-radius: 2px;
+}
+
+/* ── PROGETTI UNO ACCANTO ALL ALTRO ── */
+.contenitoreProgetti {
+   display: grid;
+    /* Crea colonne larghe almeno 250px. Se c'è spazio ne mette fino a 3. */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px; /* Spazio tra le card */
+    width: 100%;
 }
 
 /* ── ANIMAZIONE BORDO ── */
