@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head> </head>
+
+<body>
+    <h2>Dati Anagrafici</h2>
+    <label>Cognome</label>
+    <input type="text" id="txtCognome" />
+    <label>Nome</label>
+    <input type="text" id="txtNome" />
+    <br />
+    <h2>Data di nascita</h2>
+    <label>Giorno</label>
+    <input type="text" id="txtGiorno" />
+    <label>Mese</label>
+
+    <select id="txtMese"></select>
+
+    <label>anno</label>
+    <input type="text" id="txtAnno" />
+
+    <br />
+    <fieldset>
+        <legend>Domande</legend>
+        <label>RISPONDERE IN MAIUSCOLO</label>
+        <label>
+            Qual è il linguaggio di programmazione utilizzato per creare e
+            modificare i database?</label>
+        <br />
+        <input type="text" id="risp1" />
+        <br />
+        <label>Quanti valori può assumere una variabile booleana?</label>
+        <br />
+        <select id="txtRisp2">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="4">4</option>
+            <option value="256">256</option>
+        </select>
+        <br />
+        <label>Quali sono le librerie caricate a run-time?</label>
+        <br />
+        <input type="radio" id="radioS" />
+        <label>Statiche</label>
+        <br />
+        <input type="radio" id="radioD" />
+        <label>Dinamiche</label>
+        <br />
+        <label>Quali tra queste sono le parole chianve in C++</label>
+        <input type="checkbox" id="checkVoid" />
+        <label>void</label>
+        <br />
+        <input type="checkbox" id="checkIntegr" />
+        <label>integer</label>
+        <br />
+        <input type="checkbox" id="checkChar" />
+        <label>char</label>
+        <br />
+        <label>8 bit corrispondo a un...</label>
+        <input type="text" id="rispBit">
+        <br>
+    </fieldset>
+
+    
+    <br>
+    <button type="button">Elabora</button>
+    <button type="button">Cancella</button>
+    <br>
+    <fieldset>
+        <legend>Esito</legend>
+        <input type="text" id="txtPunteggio" readonly>
+    </fieldset>
+
+    <script src="script.js"></script>
+
+    <div class="card">
+        <h3>Torna alla Homepage</h3>
+        <p>Torna alla pagina principale del portfolio.</p>
+        <a href="../index.html" class="btn-small">Torna Home</a>
+    </div>
+</body>
+
+</html>
