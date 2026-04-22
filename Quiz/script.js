@@ -16,7 +16,9 @@ function elaboraDati(){
     let rispsta1=document.getElementById("risp1").value;
     let risposta2=document.getElementById("txtRisp2").value;
     let rispota3;
-    if(document.getElementById("radioS").value==true)
+    if(document.getElementById("radioS").value==true){
+        
+    }
 
 }
 riempiMesi()
