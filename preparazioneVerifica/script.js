@@ -1,4 +1,3 @@
-// [cite: 11-23] Dati degli articoli
 var articoli = [
     { nome: "mouse", prezzo: 16.00 },
     { nome: "tastiera", prezzo: 25.00 },
@@ -6,57 +5,72 @@ var articoli = [
     { nome: "scanner", prezzo: 200.00 }
 ];
 
-// Funzione base per calcolare i totali 
-function calcolaTotale() {
-    // Recupero i valori semplici dalle caselle di testo
-    let q1 = document.getElementById("qta1").value;
-    let q2 = document.getElementById("qta2").value;
-    let q3 = document.getElementById("qta3").value;
-    let q4 = document.getElementById("qta4").value;
+// Aggiorna il totale della riga in tempo reale
+function aggiornaRiga(i) {
+    let qta = parseInt(document.getElementById("qta" + (i + 1)).value) || 0;
+    let tot = qta * articoli[i].prezzo;
+    document.getElementById("tot" + (i + 1)).value = tot + "€";
+}
 
-    // Calcolo i subtotali moltiplicando quantità * prezzo
+// Calcola il totale complessivo con validazione 0-20
+function calcolaTotale() {
+    let q1 = parseInt(document.getElementById("qta1").value);
+    let q2 = parseInt(document.getElementById("qta2").value);
+    let q3 = parseInt(document.getElementById("qta3").value);
+    let q4 = parseInt(document.getElementById("qta4").value);
+
+    if (isNaN(q1) || q1 < 0 || q1 > 20) { alert("Quantità mouse non valida! Inserire un valore tra 0 e 20."); return; }
+    if (isNaN(q2) || q2 < 0 || q2 > 20) { alert("Quantità tastiera non valida! Inserire un valore tra 0 e 20."); return; }
+    if (isNaN(q3) || q3 < 0 || q3 > 20) { alert("Quantità stampante non valida! Inserire un valore tra 0 e 20."); return; }
+    if (isNaN(q4) || q4 < 0 || q4 > 20) { alert("Quantità scanner non valida! Inserire un valore tra 0 e 20."); return; }
+
     let t1 = q1 * articoli[0].prezzo;
     let t2 = q2 * articoli[1].prezzo;
     let t3 = q3 * articoli[2].prezzo;
     let t4 = q4 * articoli[3].prezzo;
 
-    // Mostro i risultati nelle caselle "Totale" della tabella
     document.getElementById("tot1").value = t1 + "€";
     document.getElementById("tot2").value = t2 + "€";
     document.getElementById("tot3").value = t3 + "€";
     document.getElementById("tot4").value = t4 + "€";
 
-    // Calcolo e mostro il totale finale
     let totaleF = t1 + t2 + t3 + t4;
     document.getElementById("totaleFinale").value = totaleF + "€";
-    
+
     return totaleF;
 }
 
-// Funzione per azzerare tutto 
+// Azzera il modulo chiedendo conferma
 function resetModulo() {
-    if (confirm("Vuoi azzerare tutto?")) {
-        location.reload(); // Il modo più semplice per resettare tutto ai valori iniziali
+    if (confirm("Vuoi azzerare il modulo?")) {
+        document.getElementById("qta1").value = 0;
+        document.getElementById("qta2").value = 0;
+        document.getElementById("qta3").value = 0;
+        document.getElementById("qta4").value = 0;
+        document.getElementById("tot1").value = 0;
+        document.getElementById("tot2").value = 0;
+        document.getElementById("tot3").value = 0;
+        document.getElementById("tot4").value = 0;
+        document.getElementById("totaleFinale").value = 0;
+        document.getElementById("email").value = "";
+        document.getElementById("pagamento").value = "contanti";
+        document.getElementById("si").checked = true;
     }
 }
 
-// Funzione per inviare l'ordine [cite: 5]
+// Invia l'ordine con messaggio riassuntivo
 function inviaOrdine() {
     let totale = calcolaTotale();
+    if (totale === undefined) return;
+
     let email = document.getElementById("email").value;
-    
-    // Recupero il testo del pagamento selezionato
     let pag = document.getElementById("pagamento").value;
-    
-    // Controllo email semplificato (solo presenza @) 
-    if (email.indexOf("@") == -1) {
-        alert("Email non valida!");
+
+    // Validazione email
+    if (email.indexOf("@") === -1) {
+        alert("Email non valida: deve essere presente la @.");
         return;
     }
-
-    // Messaggio finale [cite: 5]
-    alert("Grazie per il suo ordine di " + totale + "€, il pagamento avverrà tramite " + pag + ". Riceverà notifiche all'indirizzo " + email);
+   
+    alert("Grazie per il suo ordine di " + totale + "€, il pagamento avverrà tramite " + pag + ". Riceverà notifiche all'indirizzo " + email + ".");
 }
-
-// Colleghiamo la funzione al pulsante Invia presente nell'HTML
-document.querySelector("button[type='button']").onclick = inviaOrdine;

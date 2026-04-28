@@ -3,22 +3,20 @@
 <head>
     <title>Ordine Prodotti</title>
     <style>
-        /* Questo CSS applica i bordi a tabella e celle */
         table {
-            border-collapse: collapse; /* Evita che i bordi siano doppi */
+            border-collapse: collapse;
             width: auto;
         }
 
         table, th, td {
-            border: 1px solid black; /* Colore e spessore del bordo */
+            border: 1px solid black;
         }
 
         th, td {
-            padding: 8px; /* Aggiunge un po' di spazio interno per non appiccicare il testo */
+            padding: 8px;
             text-align: left;
         }
 
-        /* Stile opzionale per i div sotto la tabella */
         div {
             margin-top: 10px;
         }
@@ -37,25 +35,25 @@
         </thead>
         <tbody>
             <tr>
-                <td><input type="number" id="qta1" value="0"></td>
+                <td><input type="number" id="qta1" value="0" oninput="aggiornaRiga(0)"></td>
                 <td>mouse</td>
                 <td>16€</td>
                 <td><input type="text" id="tot1" value="0" readonly></td>
             </tr>
             <tr>
-                <td><input type="number" id="qta2" value="0"></td>
+                <td><input type="number" id="qta2" value="0" oninput="aggiornaRiga(1)"></td>
                 <td>tastiera 105 tasti</td>
                 <td>25€</td>
                 <td><input type="text" id="tot2" value="0" readonly></td>
             </tr>
             <tr>
-                <td><input type="number" id="qta3" value="0"></td>
+                <td><input type="number" id="qta3" value="0" oninput="aggiornaRiga(2)"></td>
                 <td>stampante deskjet colori</td>
                 <td>350€</td>
                 <td><input type="text" id="tot3" value="0" readonly></td>
             </tr>
             <tr>
-                <td><input type="number" id="qta4" value="0"></td>
+                <td><input type="number" id="qta4" value="0" oninput="aggiornaRiga(3)"></td>
                 <td>scanner A4 colori</td>
                 <td>200€</td>
                 <td><input type="text" id="tot4" value="0" readonly></td>
@@ -64,7 +62,7 @@
         <tfoot>
             <tr>
                 <td colspan="3" style="text-align: right;">
-                    <button class="btn-totale" onclick="calcolaTotale()">TOTALE ORDINE</button>
+                    <button onclick="calcolaTotale()">TOTALE ORDINE ---></button>
                 </td>
                 <td><input type="text" id="totaleFinale" value="0" readonly></td>
             </tr>
@@ -72,27 +70,29 @@
     </table>
 
     <div>
-        Desidero ricevere notifiche 
-        <input type="radio" name="notifiche" id="si" checked> <label for="si">si</label>
-        <input type="radio" name="notifiche" id="no"> <label for="no">no</label>
+        Desidero ricevere notifiche
+        <input type="radio" name="notifiche" id="si" value="si" checked> <label for="si">si</label>
+        <input type="radio" name="notifiche" id="no" value="no"> <label for="no">no</label>
     </div>
 
     <div>
-        E-mail: <input type="email" id="email">
+        E-mail: <input type="text" id="email">
     </div>
 
     <div>
-        Pagamento: 
+        Pagamento:
         <select id="pagamento">
             <option value="contanti">contanti</option>
-            <option value="carta">carta di credito</option>
+            <option value="carta di credito">carta di credito</option>
             <option value="bonifico">bonifico</option>
         </select>
     </div>
 
     <div>
-        <button type="button">INVIA ORDINE</button>
+        <button onclick="inviaOrdine()">INVIA ORDINE</button>
+        <button onclick="resetModulo()">AZZERA MODULO</button>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
