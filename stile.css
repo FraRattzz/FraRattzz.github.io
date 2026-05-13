@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -19,31 +21,46 @@ body::selection {
     color: rgb(220, 180, 255);
 }
 
-h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem; color: MediumOrchid; }
-h2 { font-size: 1.75rem; line-height: 1.3; margin-bottom: 0.75rem; color: MediumPurple; }
-h3 { font-size: 1.25rem; line-height: 1.4; margin-bottom: 0.5rem; color: Thistle; }
+h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: MediumOrchid;
+}
 
-h2 + p {
+h2 {
+    font-size: 1.75rem;
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+    color: MediumPurple;
+}
+
+h3 {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+    color: Thistle;
+}
+
+h2+p {
     font-size: 1.05rem;
     color: LightSteelBlue;
 }
 
-p { margin-bottom: 1rem; }
-
-blockquote > p {
-    color: rgba(180, 130, 255, 0.85);
+p {
+    margin-bottom: 1rem;
 }
 
 a {
     color: MediumSlateBlue;
     text-decoration: underline;
-    transition: color 0.2s ease;
+    transition: color .2s ease;
 }
 
 a:hover {
     color: MediumOrchid;
     scale: 1.1;
-    transition: 0.2s;
+    transition: .2s;
 }
 
 a:focus-visible {
@@ -52,15 +69,14 @@ a:focus-visible {
     border-radius: 2px;
 }
 
-/* ── NAVIGAZIONE ── */
-
+/* NAV */
 #nav-principale {
     background-color: #0a0a0a;
     padding: 1rem 1.5rem;
     width: 100vw;
     margin-left: calc(50% - 50vw);
     position: sticky;
-    top:0;
+    top: 0;
     z-index: 100;
 }
 
@@ -78,7 +94,7 @@ a:focus-visible {
     display: block;
     color: Lavender;
     text-decoration: none;
-    padding: 0.4rem 0;
+    padding: .4rem 0;
 }
 
 .nav-link:hover,
@@ -86,14 +102,13 @@ a:focus-visible {
     color: MediumOrchid;
     outline-color: MediumOrchid;
     scale: 1.1;
-    transition: 0.2s;
+    transition: .2s;
 }
 
-/* ── HERO ── */
-
+/* HERO */
 .hero {
     background-color: #0f0020;
-    color: #ffffff;
+    color: #fff;
     padding: 4rem 1.5rem;
     margin-bottom: 3rem;
     width: 100vw;
@@ -103,13 +118,8 @@ a:focus-visible {
     animation: border-pulse 6s ease-out infinite;
 }
 
-.hero .hero-intro {
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .hero h1 {
-    color: #ffffff;
+    color: #fff;
     font-size: 3rem;
     margin-bottom: 1rem;
 }
@@ -118,26 +128,25 @@ a:focus-visible {
     font-size: 1.15rem;
     color: Thistle;
     max-width: 60ch;
-    margin-bottom: 2rem;
+    margin: 0 auto 2rem;
 }
 
-/* ── BOTTONI ── */
-
+/* BOTTONI */
 .btn {
     display: inline-block;
     background-color: DarkOrchid;
-    color: #ffffff;
+    color: #fff;
     text-decoration: none;
-    padding: 0.75rem 1.75rem;
+    padding: .75rem 1.75rem;
     border-radius: 4px;
     font-weight: bold;
 }
 
 .btn:hover {
     background-color: DarkViolet;
-    color: #ffffff;
+    color: #fff;
     scale: 1.1;
-    transition: 0.2s;
+    transition: .2s;
 }
 
 .btn-small {
@@ -145,33 +154,49 @@ a:focus-visible {
     color: MediumOrchid;
     text-decoration: none;
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: .9rem;
 }
 
 .btn-small:hover {
     text-decoration: underline;
 }
 
-/* ── SEZIONI ── */
-
+/* SEZIONI */
 .sezione {
     margin-bottom: 3rem;
     padding-top: 1rem;
 }
 
-/* ── CARD ── */
+.sezione:last-of-type {
+    border-bottom: 2px solid #2a0a4e;
+    padding-bottom: 2rem;
+}
 
+.sezione h2::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: .9em;
+    background-color: DarkOrchid;
+    margin-right: .6rem;
+    vertical-align: middle;
+    border-radius: 2px;
+}
+
+/* CARD */
 .card {
- background-color: #1a0a2e;
+    background-color: #1a0a2e;
     border: 1px solid Indigo;
     border-radius: 8px;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%; /* Le card saranno tutte alte uguali nella stessa fila */
+    height: 100%;
+    margin-bottom: 0;
 }
-.card:hover{
+
+.card:hover {
     transform: translateY(-5px);
     border-color: MediumOrchid;
 }
@@ -182,7 +207,7 @@ a:focus-visible {
 
 .card h3 {
     color: MediumPurple;
-    margin-bottom: 0.5rem;
+    margin-bottom: .5rem;
 }
 
 .card a {
@@ -192,14 +217,17 @@ a:focus-visible {
 .card a:hover {
     color: MediumOrchid;
     text-decoration: underline;
-    transition: 0.2s;
-}
-.card {
-    margin-bottom: 0;
+    transition: .2s;
 }
 
-/* ── LISTA COMPETENZE ── */
+.contenitoreProgetti {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
 
+/* COMPETENZE */
 .lista-competenze {
     list-style: none;
     padding: 0;
@@ -207,7 +235,7 @@ a:focus-visible {
 }
 
 .lista-competenze li {
-    padding: 0.6rem 0;
+    padding: .6rem 0;
 }
 
 .lista-competenze li:not(:last-child) {
@@ -217,12 +245,11 @@ a:focus-visible {
 .lista-competenze li::before {
     content: "\2192";
     color: MediumOrchid;
-    margin-right: 0.6rem;
+    margin-right: .6rem;
     font-weight: bold;
 }
 
-/* ── CONTATTI ── */
-
+/* CONTATTI */
 .sezione#contatti li {
     margin-bottom: 10px;
 }
@@ -236,20 +263,18 @@ a:focus-visible {
     padding-right: 10px;
 }
 
-/* ── FAQ ── */
-
+/* FAQ */
 .risposta-faq {
     max-width: 500px;
     margin-bottom: 50px;
-    color: rgba(180, 130, 255, 0.85);
+    color: rgba(180, 130, 255, .85);
 }
 
-ul > li {
+ul>li {
     font-weight: bold;
 }
 
-/* ── BLOCKQUOTE ── */
-
+/* BLOCKQUOTE */
 blockquote {
     border-left: 4px solid DarkOrchid;
     padding-left: 1.25rem;
@@ -259,29 +284,25 @@ blockquote {
     background-color: #0d0014;
 }
 
+blockquote>p {
+    color: rgba(180, 130, 255, .85);
+}
+
 blockquote footer {
     font-style: normal;
-    font-size: 0.9rem;
-    color: #888888;
-    margin-top: 0.5rem;
+    font-size: .9rem;
+    color: #888;
+    margin-top: .5rem;
 }
 
-/* ── ULTIMA SEZIONE ── */
-
-.sezione:last-of-type {
-    border-bottom: 2px solid #2a0a4e;
-    padding-bottom: 2rem;
-}
-
-/* ── FOOTER ── */
-
+/* FOOTER */
 .footer-principale {
     animation: border-pulse 6s ease-out infinite;
     border: 2px solid DarkOrchid;
     margin-top: 4rem;
     padding: 2rem 0 2rem 2rem;
     color: LightSlateGray;
-    font-size: 0.9rem;
+    font-size: .9rem;
     background-color: #0a0a0a;
     width: 100vw;
     margin-left: calc(50% - 50vw);
@@ -291,7 +312,7 @@ blockquote footer {
 .footer-principale ul {
     list-style: none;
     padding: 0;
-    margin-top: 0.5rem;
+    margin-top: .5rem;
 }
 
 .footer-link {
@@ -303,36 +324,103 @@ blockquote footer {
     text-decoration: underline;
 }
 
-/* ── INTESTAZIONI SEZIONE ── */
-
-.sezione h2::before {
-    content: "";
-    display: inline-block;
-    width: 4px;
-    height: 0.9em;
-    background-color: DarkOrchid;
-    margin-right: 0.6rem;
-    vertical-align: middle;
-    border-radius: 2px;
-}
-
-/* ── PROGETTI UNO ACCANTO ALL ALTRO ── */
-.contenitoreProgetti {
-   display: grid;
-    /* Crea colonne larghe almeno 250px. Se c'è spazio ne mette fino a 3. */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px; /* Spazio tra le card */
-    width: 100%;
-}
-
-/* ── ANIMAZIONE BORDO ── */
-
+/* ANIMAZIONE */
 @keyframes border-pulse {
-    0%   { border-color: #d4a5ff; }
-    25%  { border-color: #7b2fff; }
-    33%  { border-color: #4a0080; }
-    50%  { border-color: #1e0040; }
-    66%  { border-color: #4a0080; }
-    75%  { border-color: #7b2fff; }
-    100% { border-color: #d4a5ff; }
+
+    0%,
+    100% {
+        border-color: #d4a5ff;
+    }
+
+    25% {
+        border-color: #7b2fff;
+    }
+
+    33% {
+        border-color: #4a0080;
+    }
+
+    50% {
+        border-color: #1e0040;
+    }
+
+    66% {
+        border-color: #4a0080;
+    }
+
+    75% {
+        border-color: #7b2fff;
+    }
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+    body {
+        padding: 0 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero h1 {
+        font-size: 2.4rem;
+    }
+
+    #nav-principale ul {
+        column-gap: 28px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    body {
+        padding: 0 .75rem;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    .hero {
+        padding: 2.5rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-intro {
+        font-size: 1rem;
+    }
+
+    #nav-principale ul {
+        flex-wrap: wrap;
+        column-gap: 16px;
+        row-gap: 8px;
+    }
+
+    .contenitoreProgetti {
+        grid-template-columns: 1fr;
+    }
+
+    .risposta-faq {
+        max-width: 100%;
+    }
+
+    .footer-principale {
+        padding: 1.5rem 1rem;
+    }
 }
